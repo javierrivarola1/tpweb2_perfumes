@@ -1,18 +1,18 @@
 # WEB-II-Trabajo-Práctico - Ecommerce Perfumes.
 Proyecto creado para la cátedra de Web2, Facultad UNICEN, carrera TUDAI.
 
-## Numero de grupo: 
+## 📋 Numero de grupo: 
 
-## Nombres de los integrantes del grupo: 
+## 📋 Nombres de los integrantes del grupo: 
 <ul>
-<li><strong>📋 Javier Ignacio Rivarola - nachovisa1@gmail.com </strong></li>
-<li><strong>📋 Micaela Jazmín Breijo - </strong></li>
+<li><strong> Javier Ignacio Rivarola - nachovisa1@gmail.com </strong></li>
+<li><strong> Micaela Jazmín Breijo - </strong></li>
 </ul>
 
 ## 🧠 Tematica:
 Ecommerce especializado en perfumes de nicho y marcas reconocidas, orientado a ofrecer experiencias olfativas únicas para todos los géneros: masculinos, femeninos y unisex.
 
-## Diagrama de entidad relación (DER)
+## ✅ Diagrama de entidad relación (DER)
 Las entidades principales de la base de datos son productos y marcas . Para cada una se construyó una tabla con sus respectivos atributos.
 
 <ul>

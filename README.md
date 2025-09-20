@@ -1,11 +1,13 @@
-# WEB-II-Trabajo-Práctico - Ecoomerce Perfumes.
+# WEB-II-Trabajo-Práctico - Ecommerce Perfumes.
 Proyecto creado para la cátedra de Web2, Facultad UNICEN, carrera TUDAI.
 
 ## Numero de grupo: 
 
 ## Nombres de los integrantes del grupo: 
-📋 Javier Ignacio Rivarola - nachovisa1@gmail.com
-📋 Micaela Jazmín Breijo - 
+<ul>
+<li><strong>📋 Javier Ignacio Rivarola - nachovisa1@gmail.com </strong></li>
+<li><strong>📋 Micaela Jazmín Breijo - </strong></li>
+</ul>
 
 ## Tematica:
 Ecommerce especializado en perfumes de nicho y marcas reconocidas, orientado a ofrecer experiencias olfativas únicas para todos los géneros: masculinos, femeninos y unisex.

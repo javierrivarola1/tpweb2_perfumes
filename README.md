@@ -9,7 +9,7 @@ Proyecto creado para la cátedra de Web2, Facultad UNICEN, carrera TUDAI.
 <li><strong>📋 Micaela Jazmín Breijo - </strong></li>
 </ul>
 
-## Tematica:
+## 🧠 Tematica:
 Ecommerce especializado en perfumes de nicho y marcas reconocidas, orientado a ofrecer experiencias olfativas únicas para todos los géneros: masculinos, femeninos y unisex.
 
 ## Diagrama de entidad relación (DER)

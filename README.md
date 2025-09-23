@@ -2,11 +2,12 @@
 Proyecto creado para la cátedra de Web2, Facultad UNICEN, carrera TUDAI.
 
 ## 📋 Numero de grupo: 
+48
 
 ## 📋 Nombres de los integrantes del grupo: 
 <ul>
 <li><strong> Javier Ignacio Rivarola - nachovisa1@gmail.com </strong></li>
-<li><strong> Micaela Jazmín Breijo - </strong></li>
+<li><strong> Micaela Jazmín Breijo - micabreijo@gmail.com </strong></li>
 </ul>
 
 ## 🧠 Tematica:
@@ -22,7 +23,8 @@ Las entidades principales de la base de datos son productos y marcas . Para cada
   
 La relación entre estas tablas es de 1 a N , lo que significa que una marca puede tener más de un perfume, pero un perfume sólo puede pertenecer a una marca específica.
 
-<img width="529" height="622" alt="db_screenShoot" src="https://github.com/user-attachments/assets/38c9a959-e49a-4686-a25c-ce7ad4824b64" />
+<img width="952" height="607" alt="Captura de pantalla 2025-09-23 194921" src="https://github.com/user-attachments/assets/a92a6dfe-b1f6-4c09-af7d-914411362a8e" />
+
 
 
 

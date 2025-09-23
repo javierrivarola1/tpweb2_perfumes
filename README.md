@@ -6,7 +6,7 @@ Proyecto creado para la cátedra de Web2, Facultad UNICEN, carrera TUDAI.
 ## 📋 Nombres de los integrantes del grupo: 
 <ul>
 <li><strong> Javier Ignacio Rivarola - nachovisa1@gmail.com </strong></li>
-<li><strong> Micaela Jazmín Breijo - </strong></li>
+<li><strong> Micaela Jazmín Breijo - micabreijo@gmail.com </strong></li>
 </ul>
 
 ## 🧠 Tematica:

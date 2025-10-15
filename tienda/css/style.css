@@ -1,0 +1,49 @@
+/*Universal*/
+
+* {
+margin:0;
+padding:0;
+box-sizing: border-box;
+font-family: sans-serif;
+}
+
+/*Navbar*/
+nav ul{
+    list-style: none;
+}
+
+nav ul a {
+    color:#f0a0b2;
+    text-decoration:none;
+    transition: 0.3s ease-in-out;  
+}
+
+nav ul a:hover {
+    color:black;  
+}
+
+/*Seccion subtitulo pagina home*/
+
+section > h3 {
+    color:#f0a0b2;
+}
+
+/*Card*/
+
+.card-product {
+
+    text-decoration: none;
+    border: #899292 1px solid;   
+    border-radius: 0.5rem;
+    color: #899292;
+
+}
+
+.card-product h3 {
+    color:black;
+}
+
+.card-body {
+    padding: 1rem;
+}
+

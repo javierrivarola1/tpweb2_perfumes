@@ -1,0 +1,14 @@
+<a href="<?php echo BASE_URL; ?>/detail/<?= $element->id ?>"
+    class="d-flex flex-column w-25 m-1" <?php echo $element->stock == 1 ? "" : "card-disabled" ?>">
+    <img class="product-card-img" src="<?= $element->img ?>" alt="img_product_example">
+    <div class="d-flex flex-column  justify-content-center card-body ">
+        <h3><?= $element->nombre ?></h3>
+        <p><?= $element->descripcion?></p>
+        <p>tamanio <?= $element->presentacion?></p>
+        <p>existencia:<span>
+         class="<?= $element->stock== 1 ? "stock" : "no-stock" ?>"><?= $element->stock == 1 ? "disponible" : "no disponible" ?></span>
+        </p>
+        <div class="card-price">
+        </div>
+    </div>
+</a>

@@ -21,7 +21,8 @@
             exit;
           }
         }
-  
+
+        //Funciona la base de datos con una version antigua
         private function _deploy()
   
         {
@@ -165,4 +166,5 @@
             $this->db->exec($sql);
           }
         }
+
       }

@@ -13,12 +13,18 @@ class ProductController {
         $this->view = new ProductView();
     }
 
-    function getProductsHome()  {
-        
-        $Array = $this -> model -> getProductAll(); 
-
-            $this -> view -> showProduct($Array);    
+    function getProductos()  {
+        //traer todos los productos de la base de datos
+        $arrayProductos = $this -> model -> getProductos(); //Cambiamos array porr arrayProductos
+        //enviamos el array a la vista
+        $this -> view -> mostrarProductos($arrayProductos);    
     
+    }
+
+    function getProducto($id) {
+        $producto = $this -> model -> get($id);// Trajimos un producto especifico de la base de datos.
+        //enviamos el producto a la vista
+        $this -> view -> mostrarProducto($producto);
     }
 
 }

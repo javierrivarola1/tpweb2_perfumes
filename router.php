@@ -41,11 +41,19 @@ switch ($params[0]) {
     case 'home': 
 
         $controller = new ProductController();
-        $controller->getProductsHome();
+        $controller->getProductos();
         break;
 
+    case 'detail': 
+        if(isset ($params[1]))     {//revisa como parametro el ID del producto para traerlo.
+            $controller = new ProductController();
+            $controller->getProducto($params[1]);
+        } 
+        break;
+        
+
     default:
-        $controller = new ErrorView();
+        $controller = new ErrorVista();
         $controller->showError("Pagina no encontrada", "home", "/", 404);
         break;
 }

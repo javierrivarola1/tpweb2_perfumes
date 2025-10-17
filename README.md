@@ -25,8 +25,6 @@ La relación entre estas tablas es de 1 a N , lo que significa que una marca pue
 
 <img width="952" height="607" alt="Captura de pantalla 2025-09-23 194921" src="https://github.com/user-attachments/assets/a92a6dfe-b1f6-4c09-af7d-914411362a8e" />
 
-## ✅ Ruta:
-
 
 
 

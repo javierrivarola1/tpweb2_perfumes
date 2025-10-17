@@ -8,12 +8,16 @@ font-family: sans-serif;
 }
 
 /*Navbar*/
+nav {
+    background-color:#f0a0b2;
+}
+
 nav ul{
     list-style: none;
 }
 
 nav ul a {
-    color:#f0a0b2;
+    color:white;
     text-decoration:none;
     transition: 0.3s ease-in-out;  
 }
@@ -31,12 +35,10 @@ section > h3 {
 /*Card*/
 
 .card-product {
-
     text-decoration: none;
     border: #899292 1px solid;   
     border-radius: 0.5rem;
     color: #899292;
-
 }
 
 .card-product h3 {
@@ -44,6 +46,14 @@ section > h3 {
 }
 
 .card-body {
+    border-top: #899292 1px solid;
     padding: 1rem;
+    width: 100%;
 }
+
+/*Formulario*/
+
+
+
+
 

@@ -3,11 +3,18 @@
 class ProductView {
 
 
-    function showProduct($product) {
+    function mostrarProductos($productos) {
 
          require_once 'template/home.phtml';
 
     }
 
+    function detalleProducto ($producto) {
+        require_once 'template/home.phtml';
+    }
+
+    function mostrarProducto ($producto) {
+        require_once 'template/detalle.phtml';
+    }
 
 }

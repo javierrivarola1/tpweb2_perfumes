@@ -25,4 +25,19 @@ class ProductModel extends Autodeploy
 
         return $arrayProduct;
     }
+
+    function eliminar($id) // Metodo para eliminar un ítem
+    {
+        $query = $this->db->prepare("DELETE FROM producto WHERE id = ?"); 
+        $query->execute([$id]);
+    }
+
+    function agregar($nombre, $descripcion, $marca, $sexo, $stock, $precio, $presentacion) // Metodo para agregar un ítem
+    {
+        $query = $this->db->prepare("INSERT INTO producto (nombre, descripcion, marca, sexo, stock, precio, presentacion) VALUES (?, ?, ?, ?, ?, ?, ?)");
+        $query->execute([$nombre, $descripcion, $marca, $sexo, $stock, $precio, $presentacion]);
+        $id = $this->db->lastInsertId();// Obtengo el ID del último producto insertado.
+
+        return $id;
+    }
 }

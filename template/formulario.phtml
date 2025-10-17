@@ -1,44 +1,39 @@
-   <?php require_once './template/layout/header.phtml'; ?> <!--Trae el header-->
-
-
+<?php require_once './template/layout/header.phtml'; ?> <!--Trae el header-->
    
-   <section>
-        <div class="d-flex flex-column align-items-center m-3"><h3 class="fw-bold">Nuevo producto</h3></div>
-        <form>
-  <div class="mb-3 container formulario">
-    <label for="exampleInputEmail1" class="form-label">ID</label>
-    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-  <div class="mb-3">
-    <label for="exampleInputPassword1" class="form-label">Nombre</label>
-    <input type="password" class="form-control" id="exampleInputPassword1">
-  </div>
-    <div class="mb-3">
-    <label for="exampleInputPassword1" class="form-label">Descripcion</label>
-    <input type="password" class="form-control" id="exampleInputPassword1">
-  </div>
-    <div class="mb-3">
-    <label for="exampleInputPassword1" class="form-label">Marca</label>
-    <input type="password" class="form-control" id="exampleInputPassword1">
-  </div>
-    <div class="mb-3">
-    <label for="exampleInputPassword1" class="form-label">Sexo</label>
-    <input type="password" class="form-control" id="exampleInputPassword1">
-  </div>
-    <div class="mb-3">
-    <label for="exampleInputPassword1" class="form-label">Stock</label>
-    <input type="password" class="form-control" id="exampleInputPassword1">
-  </div>
-    <div class="mb-3">
-    <label for="exampleInputPassword1" class="form-label">Precio</label>
-    <input type="password" class="form-control" id="exampleInputPassword1">
-  </div>
-    <div class="mb-3">
-    <label for="exampleInputPassword1" class="form-label">Presentacion</label>
-    <input type="password" class="form-control" id="exampleInputPassword1">
-  </div>
-  <button type="submit" class="btn btn-primary">Agregar</button>
-   <button type="submit" class="btn btn-danger">Eliminar</button>
-</form>
-    </section>
+<section>
+  <div class="d-flex flex-column align-items-center m-3"><h3 class="fw-bold">Nuevo producto</h3></div>
+  <form  method="POST" action="<?php echo BASE_URL; ?>/agregarProducto">
+      <div class="mb-3 container formulario">
+      <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label">Nombre</label>
+        <input type="nombre" class="nombre" id="nombre" name="nombre">
+      </div>
+        <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label">Descripcion</label>
+        <input type="descripcion" class="descripcion" id="descripcion" name="descripcion">
+      </div>
+        <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label">Marca</label>
+        <input type="marca" class="marca" id="marca" name="marca">
+      </div>
+        <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label">Sexo</label>
+        <input type="sexo" class="sexo" id="sexo" name="sexo">
+      </div>
+        <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label">Stock</label>
+        <input type="stock" name="stock" class="stock" id="stock">
+      </div>
+        <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label">Precio</label>
+        <input type="precio" class="precio" id="precio" name="precio">
+      </div>
+        <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label">Presentacion</label>
+        <input type="presentacion" class="presentacion" id="presentacion" name="presentacion">
+      </div>
+      <button type="submit" class="btn btn-primary">Agregar</button>
+  </form>
+</section>
 
-    <?php require_once './template/layout/footer.phtml'; ?>
+<?php require_once './template/layout/footer.phtml'; ?>

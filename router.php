@@ -44,11 +44,23 @@ switch ($params[0]) {
         $controller->getProductos();
         break;
 
-    case 'detail': 
+    case 'detalle': 
         if(isset ($params[1]))     {//revisa como parametro el ID del producto para traerlo.
             $controller = new ProductController();
             $controller->getProducto($params[1]);
         } 
+        break;
+
+    case 'eliminarProducto':
+        if (isset($params[1])) { // revisa como parametro el ID del producto para traerlo.
+            $controller = new ProductController();
+            $controller->eliminarProducto($params[1]);
+        }
+        break;
+
+    case 'agregarProducto': // Ruta para agregar un producto
+        $controller = new ProductController();
+        $controller->agregarProducto();
         break;
         
 

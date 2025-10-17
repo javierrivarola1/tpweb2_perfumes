@@ -1,0 +1,8 @@
+<?php require_once 'header.phtml' ?>
+    <h1><?php echo $marca[0]->nombre?></h1>
+    <ul>
+        <?php foreach ($productos as $producto){ ?>
+        <li><?php echo $producto->nombre ?></li>
+        <?php }?>
+    </ul>
+    

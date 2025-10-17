@@ -9,16 +9,20 @@
             <?= substr(htmlspecialchars($producto->descripcion), 0, 40) ?>...
         <?php else : ?>
             <?= htmlspecialchars($producto->descripcion)?>
-        <?php endif ?>
-
+        <?php endif ?> <br></br>
+            
         <?php if(!isset($productos)) :?>
             <p>tamanio <?= $producto->presentacion?></p>
         <?php endif ?>
+       
 
         <p>stock:<span
          class="<?= $producto->stock== 1 ? "text-success" : "text-danger" ?>"><?= $producto->stock == 1 ? "disponible" : "no disponible" ?></span>
         </p>
-        <div class="card-price">
+        <p>precio:
+            <?= $producto->precio?>
+        </p>
+        <div class="card-precio">
         </div>
     </div>
 </a>

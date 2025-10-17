@@ -1,0 +1,28 @@
+<!--Componente Card-->
+
+<a href="<?php echo BASE_URL; ?>/detail/<?= $producto->id ?>"
+    class="d-flex flex-column w-25 m-1 card-product align-items-center" <?php echo $producto->stock == 1 ? "" : "card-disabled" ?>">
+    <img src="<?= $producto->url ?>" alt="img_product_example" height="400" width="400">
+    <div class="d-flex flex-column  justify-content-center card-body">
+        <h3 class= "fw-bold"><?= $producto->nombre ?></h3>
+        <?php if(isset($productos)) :?>
+            <?= substr(htmlspecialchars($producto->descripcion), 0, 40) ?>...
+        <?php else : ?>
+            <?= htmlspecialchars($producto->descripcion)?>
+        <?php endif ?> <br></br>
+            
+        <?php if(!isset($productos)) :?>
+            <p>tamanio <?= $producto->presentacion?></p>
+        <?php endif ?>
+       
+
+        <p>stock:<span
+         class="<?= $producto->stock== 1 ? "text-success" : "text-danger" ?>"><?= $producto->stock == 1 ? "disponible" : "no disponible" ?></span>
+        </p>
+        <p>precio:
+            <?= $producto->precio?>
+        </p>
+        <div class="card-precio">
+        </div>
+    </div>
+</a>

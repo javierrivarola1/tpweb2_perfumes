@@ -1,0 +1,18 @@
+<?php require_once './template/layout/header.phtml'; ?> <!--Trae el header-->
+
+    <section class="d-flex flex-column align-items-center m-3 ">
+    <h1 class="w-50 text-center fw-bold">Perfumes Millanel</h1>
+    <h3 class="w-50 text-center">Descubri todas las novedades que trae el catalogo Millanel de la nueva campania Vigencia de la campania del 15/09/2025 al 19/10/2025</h3>
+    </section>
+
+
+
+    <section class="d-flex flex-row flex-wrap w-100 justify-content-center mt-3">
+          <?php foreach ($productos as $producto): ?>
+            <?php require 'template/card.phtml' ?> <!--Trae toda la descripcion de la card-->
+            <?php endforeach ?>
+    </section>
+
+    <?php require_once './template/formulario.phtml'; ?>
+
+<?php require_once './template/layout/footer.phtml'; ?> <!-- trae el footer-->

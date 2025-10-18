@@ -24,7 +24,7 @@ class Model  {
         return $productos; //retorno el arreglo productos al controlador
     }
     public function getMarcaByID($IDMarca){
-          $query = $this->db->prepare('SELECT * FROM marca WHERE id = ?');
+          $query = $this->db->prepare('SELECT * FROM marca WHERE id = ?'); //puedo buscar desde la pestania SQL asi
           $query->execute([$IDMarca]);
           $marca =   $query->fetchAll(PDO::FETCH_OBJ);
           return $marca;  

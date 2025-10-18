@@ -14,7 +14,7 @@ class MarcaController {
 
     
     
-    public function getMarcas(){  //creo funcion para traer marcas del modelo y entregarseslas a la vista
+    public function getMarcas(){  //creo funcion para traer marcas del modelo y entregarselas a la vista
         $marcas = $this->model->getAllMarcas();
         $this->view->mostrarMarcas($marcas);
     }

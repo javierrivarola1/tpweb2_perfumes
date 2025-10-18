@@ -17,14 +17,14 @@ class UsuarioController {
     }
 
 
-    function mostrarRegistro() {
+    public function mostrarRegistro() {
         return $this -> view -> mostrarRegistro(); //Mostrar el formulario de Registro
     }
-    function mostrarLogin() {
+    public function mostrarLogin() {
         return $this -> view -> mostrarLogin();// mostrar el formulario de login
     }
 
-    function registrarse() {
+    public function registrarse() {
         $usuario = $_POST['usuario'];
         $contrasenia = $_POST['contrasenia'];
         $contraseniaHash = password_hash($contrasenia, PASSWORD_DEFAULT); //hasheo la contraseña que ingreso el us
@@ -38,13 +38,15 @@ class UsuarioController {
 
             if ($userID) { //si se pudo registrar trae el objeto usuario buscandolo por id 
                 $user = $this->model->getUserById($userID);
+                
                 // Guardo en la sesión el ID del usuario y otros datos de el
                 session_start();
-                $_SESSION['id_'] = $userID;
-                $_SESSION['usuario'] = $user->usuario;
+                $_SESSION['id_user'] = $userID;
+                $_SESSION['username'] = $user->usuario;
                 $_SESSION['LAST_ACTIVITY'] = time();// tiempo de la ultima actividad
-                // Redirijo al home
-                header('Location: ' . BASE_URL); //no se pone barra, lo pone el explode
+// +               var_dump($_SESSION);
+                
+                header('Location: ' . BASE_URL); // redirige al home
                 exit();
             }else{
                 return $this->view->showRegister('No fue posible registrase');
@@ -54,6 +56,39 @@ class UsuarioController {
             return $this->view->showRegister('Ese usuario ya existe. No puede registrarse con ese nombre de usuario');
         }
       
+    }
+
+    public function login() {
+        $usuario = $_POST['usuario'];
+        $contrasenia = $_POST['contrasenia'];
+
+        // Verificar que el usuario está en la base de datos
+        $user = $this->model->getUserByUsername($usuario);
+
+        if ($user && password_verify($contrasenia, $user->contrasenia)) {
+            // Guardo en la sesión el ID del usuario y otros datos de el
+            session_start();
+            $_SESSION['id_user'] = $user->id_user;
+            $_SESSION['username'] = $user->usuario;
+            $_SESSION['LAST_ACTIVITY'] = time();// tiempo de la ultima actividad
+
+            header('Location: ' . BASE_URL); // redirige al home
+            exit();
+        } else {
+            return $this->view->showLogin('Usuario o contraseña incorrectos');
+        }
+    }
+
+    public function logout() {
+        session_start();
+        session_unset(); // Elimina todas las variables de sesión
+        session_destroy(); // Destruye la sesión
+        header('Location: ' . BASE_URL ); // Redirige al login después de cerrar sesión
+        exit();
+    }
+
+    function mostrarError($mensaje) {
+        $this->view->mostrarError($mensaje);
     }
 }
 

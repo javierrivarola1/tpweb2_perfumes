@@ -7,10 +7,8 @@ class ProductModel extends Autodeploy
 
     function getProductos()
     {
-
         $query = $this->db->prepare("select * from producto"); //Metodo para traer productos (Listado de ítems: Se debe poder visualizar todos los ítems cargados)
         $query->execute();
-
         $arrayProduct = $query->fetchAll(PDO::FETCH_OBJ);
 
         return $arrayProduct;
@@ -39,5 +37,14 @@ class ProductModel extends Autodeploy
         $id = $this->db->lastInsertId();// Obtengo el ID del último producto insertado.
 
         return $id;
+    }
+    
+    function modificar($id, $nombre, $descripcion, $marca, $sexo, $stock, $precio, $presentacion)
+    {
+        $query = $this->db->prepare("UPDATE producto SET nombre = ?, descripcion = ?, marca = ?, sexo = ?, stock = ?, precio = ?, presentacion = ? WHERE id = ?");
+        $query->execute([$nombre, $descripcion, $marca, $sexo, $stock, $precio, $presentacion, $id]);
+
+        // devolver número de filas afectadas (o true/false si prefieres)
+        return $query->rowCount();// el rowCount devuelve la cantidad de filas afectadas por la consulta.
     }
 }

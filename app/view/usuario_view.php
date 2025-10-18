@@ -13,5 +13,8 @@ class UsuarioView {
     require_once 'template/login.phtml'; //Aquí irían los métodos relacionados con la gestión de usuarios
 
    }
+   function mostrarError($mensaje) {
+      require_once 'template/error.phtml';
+   }
 
 }

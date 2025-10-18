@@ -1,0 +1,31 @@
+<?php require_once './template/layout/header.phtml'; ?>
+
+<seccion class="container my-5">
+    <div class="card shadow-lg rounded mx-auto card-login">
+        <div class="card-body p-4">
+            <h2 class="card-title text-center mb-4">Iniciar sesión</h2>
+
+            <form method="post" action="<?php echo BASE_URL; ?>/login" novalidate>
+                <div class="mb-3">
+                    <label for="usuario" class="form-label">Usuario</label>
+                    <input type="text" class="form-control" id="usuario" name="usuario" placeholder="Ingresa tu usuario" required autocomplete="username">
+                </div>
+
+                <div class="mb-3">
+                    <label for="contrasena" class="form-label">Contraseña</label>
+                    <input type="password" class="form-control" id="contrasenia" name="contrasenia" placeholder="Ingresa tu contraseña" required autocomplete="current-password">
+                </div>
+
+                <div class="d-grid">
+                    <button type="submit" class="btn boton-loguin btn-lg">Entrar</button>
+                </div>
+
+                <div class="text-center mt-3">
+                    <small>¿No tienes una cuenta? <a href="<?php echo BASE_URL; ?>/registro">Regístrate</a></small>
+                </div>
+            </form>
+        </div>
+    </div>
+</seccion>
+
+<?php require_once './template/layout/footer.phtml'; ?>

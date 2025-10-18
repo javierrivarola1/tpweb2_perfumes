@@ -2,6 +2,7 @@
 
 
 require_once 'app/controller/product_controller.php';
+require_once 'app/controller/usuario_controller.php';
 
 
 
@@ -62,8 +63,23 @@ switch ($params[0]) {
         $controller = new ProductController();
         $controller->agregarProducto();
         break;
-        
 
+    case 'login':
+        $controller = new UsuarioController();
+        $controller->mostrarLogin();
+        break; // Ruta para mostrar el formulario de login
+
+    case 'registro':
+        $controller = new UsuarioController();  
+        $controller->mostrarRegistro();
+        break; // Ruta para mostrar el formulario de registro
+        
+    case 'registrarse':
+
+        $controller = new UsuarioController();
+        $controller->registrarse();
+        break; // Ruta para procesar el registro de un nuevo usuario
+       
     default:
         $controller = new ErrorVista();
         $controller->showError("Pagina no encontrada", "home", "/", 404);

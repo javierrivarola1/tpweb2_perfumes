@@ -13,13 +13,16 @@
         <input type="descripcion" class="descripcion" id="descripcion" name="descripcion">
       </div>
         <div class="mb-3">
-        <label for="exampleInputPassword1" class="form-label">Marca</label>
-       <select class="marca" id="marca" name="marca">
-        <?php foreach($marcas as $marca): ?>
-            <option value="<?php echo $marca->id?>"><?php echo htmlspecialchars($marca->nombre); ?></option>
-        <?php endforeach; ?>
-        </select>
-      </div>
+            <label for="marca" class="form-label">Marca</label>
+            <select class="form-control marca" id="marca" name="marca">
+                <option value="">Seleccione una marca</option>
+                <?php foreach($marcas as $marca): ?>
+                    <option value="<?php echo $marca->id?>">
+                        <?php echo htmlspecialchars($marca->nombre); ?>
+                    </option>
+                <?php endforeach; ?>
+            </select>
+        </div>
         <div class="mb-3">
         <label for="exampleInputPassword1" class="form-label">Sexo</label>
         <input type="sexo" class="sexo" id="sexo" name="sexo">

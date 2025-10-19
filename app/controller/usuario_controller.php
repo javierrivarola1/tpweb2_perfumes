@@ -44,7 +44,7 @@ class UsuarioController {
                 $_SESSION['id_user'] = $userID;
                 $_SESSION['username'] = $user->usuario;
                 $_SESSION['LAST_ACTIVITY'] = time();// tiempo de la ultima actividad
-// +               var_dump($_SESSION);
+
                 
                 header('Location: ' . BASE_URL); // redirige al home
                 exit();

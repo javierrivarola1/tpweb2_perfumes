@@ -42,14 +42,14 @@ section > h3 {
 
 /*Card*/
 
-.card-product {
+.card-producto {
   text-decoration: none;
   border: #899292 1px solid;
   border-radius: 0.5rem;
   color: #899292;
 }
 
-.card-product h3 {
+.card-producto h3 {
   color: black;
 }
 
@@ -92,6 +92,15 @@ footer {
   color: #495057;
   font-weight: 600;
   font-size: 0.95rem;
+}
+
+
+.formulario select {
+  padding: 1rem;
+  padding-right: 36px;
+  cursor: pointer;
+  border: 1px solid #ced4da;
+  border-radius: 6px;
 }
 
 .formulario input[type="text"],

@@ -1,5 +1,7 @@
 <?php   
 
+require_once 'autodeploy.php';
+
 class usuarioModel extends Autodeploy{
      function agregar ($usuario, $contraseniaHash) {
           
@@ -10,7 +12,7 @@ class usuarioModel extends Autodeploy{
           return $id;
      } // Aquí irían los métodos relacionados con la gestión de usuarios
 
-     function getUserByUsername($username) {
+     function getUserByUsername($username) { //Traer usuario por nombre de usuario para verificar el registro
 
           $query = $this->db->prepare("SELECT * FROM usuarios WHERE usuario = ?"); //prepara a consulta para la base de datos
           $query->execute([$username]); //ejecuta la consulta con el parametro username.
@@ -18,7 +20,7 @@ class usuarioModel extends Autodeploy{
 
      }
 
-     function getUserById($id) {
+     function getUserById($id) { //Traer usuario por ID para iniciar seccion
     
           $query = $this->db->prepare("SELECT * FROM usuarios WHERE id = ?"); //prepara a consulta para la base de datos
           $query->execute([ (int)$id ]); //ejecuta la consulta con el parametro id.

@@ -1,0 +1,10 @@
+<?php require_once './template/layout/header.phtml'; ?>
+    <section class="container my-5">
+        <div class="alert alert-danger" role="alert">
+            <h4 class="alert-heading">Error</h4>
+            <p><?php echo htmlspecialchars($mensaje); ?></p>
+            <hr>
+            <a href="<?php echo BASE_URL; ?>/home" class="btn btn-primary">Volver al inicio</a>
+        </div>
+    </section>
+<?php require_once './template/layout/footer.phtml'; ?>

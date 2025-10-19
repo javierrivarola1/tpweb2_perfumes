@@ -13,6 +13,9 @@
             <?php endforeach ?>
     </section>
 
-    <?php require_once './template/formulario.phtml'; ?>
+
+    <?php if (isset($_SESSION['username'])) : ?>
+        <?php require_once './template/formulario.phtml';?> <!-- trae el formulario para agregar productos -->
+    <?php endif ?>
 
 <?php require_once './template/layout/footer.phtml'; ?> <!-- trae el footer-->

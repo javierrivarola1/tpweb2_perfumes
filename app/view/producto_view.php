@@ -1,6 +1,6 @@
 <?php 
 
-class ProductView {
+class ProductoView {
 
 
     function mostrarProductos($productos, $marcas) {

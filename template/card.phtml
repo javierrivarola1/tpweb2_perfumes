@@ -1,8 +1,12 @@
 <!--Componente Card-->
+<?php if(isset($productos)): ?> 
+<!-- Si existe el array de productos, es porque estoy en el listado de productos, entonces hago el enlace al detalle. -->
+<a href="<?php echo BASE_URL; ?>/detalle/<?= $producto->id ?>" class="d-flex flex-column w-25 m-1 card-producto align-items-center" <?php echo $producto->stock == 1 ? "" : "card-disabled" ?>>
 
-<a href="<?php echo BASE_URL; ?>/detail/<?= $producto->id ?>"
-    class="d-flex flex-column w-25 m-1 card-product align-items-center" <?php echo $producto->stock == 1 ? "" : "card-disabled" ?>">
-    <img src="<?= $producto->url ?>" alt="img_product_example" height="400" width="400">
+<?php else: ?> 
+    <div class="d-flex flex-column w-25 m-1 card-producto align-items-center"> <!-- Si no existe el array de productos, estoy en el detalle del producto, entonces solo muestro el div. -->
+<?php endif ?>
+<div><img src="<?= $producto->url ?>" alt="img_product_example" height="400" width="400"></div>
     <div class="d-flex flex-column  justify-content-center card-body">
         <h3 class= "fw-bold"><?= $producto->nombre ?></h3>
         <?php if(isset($productos)) :?>
@@ -22,7 +26,63 @@
         <p>precio:
             <?= $producto->precio?>
         </p>
-        <div class="card-precio">
-        </div>
+        
+        
+        
+        <?php if(!isset($productos) && isset($_SESSION['username'])): ?> <!-- // Si no estoy en el listado de productos, estoy en el detalle, por lo tanto muestro el boton eliminar. -->
+            <div><a href="<?php echo BASE_URL; ?>/eliminarProducto/<?= $producto->id ?>" class="btn btn-danger">Eliminar</a></div>
+        <?php endif ?>
     </div>
+    
+<?php if(isset($productos)): ?> <!-- //Cierre del enlace si estoy en el listado de productos. -->
 </a>
+
+<?php else: ?> <!-- //Cierre del div si estoy en el detalle del producto. -->
+</div>
+
+<?php endif ?>
+
+
+
+
+<?php if (!isset($productos) && isset($_SESSION['username'])): ?> 
+    <section>
+    <div class="d-flex flex-column align-items-center m-3"><h3 class="fw-bold">Modificar producto <?php echo $producto->id ?></h3></div>
+    <form  method="POST" action="<?php echo BASE_URL; ?>/modificarProducto/<?= $producto->id ?>">
+        <div class="mb-3 container formulario">
+        <div class="mb-4">
+            <label for="ModificarNombre" class="form-label">Nombre</label>
+            <input type="text" class="ModificarNombre" id="ModificarNombre" name="ModificarNombre">
+        </div>
+            <div class="mb-3">
+            <label for="ModificarDescripcion" class="form-label">Descripcion</label>
+            <input type="text" class="ModificarDescripcion" id="ModificarDescripcion" name="ModificarDescripcion">
+        </div>
+            <div class="mb-3">
+            <label for="ModificarMarca" class="form-label">Marca</label>
+        <select class="ModificarMarca" id="ModificarMarca" name="ModificarMarca">
+            <?php foreach($marcas as $marca): ?>
+                <option value="<?php echo $marca->id?>"><?php echo htmlspecialchars($marca->nombre);?></option>
+            <?php endforeach; ?>
+            </select>
+        </div>
+            <div class="mb-3">
+            <label for="ModificarSexo" class="form-label">Sexo</label>
+            <input type="text" class="ModificarSexo" id="ModificarSexo" name="ModificarSexo">
+        </div>
+            <div class="mb-3">
+            <label for="ModificarStock" class="form-label">Stock</label>
+            <input type="number" name="ModificarStock" class="ModificarStock" id="ModificarStock">
+        </div>
+            <div class="mb-3">
+            <label for="ModificarPrecio" class="form-label">Precio</label>
+            <input type="number" class="ModificarPrecio" id="ModificarPrecio" name="ModificarPrecio">
+        </div>
+            <div class="mb-3">
+            <label for="ModificarPresentacion" class="form-label">Presentacion</label>
+            <input type="number" class="ModificarPresentacion" id="ModificarPresentacion" name="ModificarPresentacion">
+        </div>
+        <button type="submit" class="btn boton-formulario">Modificar</button>
+    </form>
+    </section>
+<?php endif ?>

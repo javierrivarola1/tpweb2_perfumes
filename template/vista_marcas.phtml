@@ -1,0 +1,26 @@
+<?php require_once './template/layout/header.phtml'; ?>
+<div class="accordion" id="accordionExample">
+  <?php foreach ($marcas as $marca) { ?>
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="heading<?php echo $marca->id; ?>">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                data-bs-target="#collapse<?php echo $marca->id; ?>"
+                aria-expanded="false" aria-controls="collapse<?php echo $marca->id; ?>">
+          <?php echo $marca->nombre; ?>
+        </button>
+      </h2>
+      <div id="collapse<?php echo $marca->id; ?>" class="accordion-collapse collapse"
+           aria-labelledby="heading<?php echo $marca->id; ?>" data-bs-parent="#accordionExample">
+        <div class="accordion-body">
+          <strong>Datos de <?php echo $marca->nombre; ?></strong><br>
+          <ul>
+            <li>Origen: <?php echo $marca->origen; ?> </li>
+            <li>Creador: <?php echo $marca->creador; ?> </li>
+            <li>Año: <?php echo $marca->año; ?> </li>
+        </ul>
+        <a class="btn btn-info" href="/tpweb2_perfumes/parte2/prodByMarca/<?php echo $marca->id ?>" role="button">Ver perfumes</a>
+        </div>
+      </div>
+    </div>
+  <?php } ?>
+</div>

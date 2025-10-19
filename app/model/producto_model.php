@@ -2,16 +2,16 @@
 
 require_once 'autodeploy.php';
 
-class ProductModel extends Autodeploy
+class ProductoModel extends Autodeploy
 {
 
     function getProductos()
     {
         $query = $this->db->prepare("select * from producto"); //Metodo para traer productos (Listado de ítems: Se debe poder visualizar todos los ítems cargados)
         $query->execute();
-        $arrayProduct = $query->fetchAll(PDO::FETCH_OBJ);
+        $arrayProducto = $query->fetchAll(PDO::FETCH_OBJ);
 
-        return $arrayProduct;
+        return $arrayProducto;
     }
 
     function get($id) //Metodo para traer detalle de ítem: Se debe poder navegar y visualizar cada ítem particularmente 
@@ -19,9 +19,9 @@ class ProductModel extends Autodeploy
         $query = $this->db->prepare("select * from producto WHERE id = ?"); //Metodo para traer productos (Listado de ítems: Se debe poder visualizar todos los ítems cargados)
         $query->execute([$id]);
 
-        $arrayProduct = $query->fetch(PDO::FETCH_OBJ);
+        $arrayProducto = $query->fetch(PDO::FETCH_OBJ);
 
-        return $arrayProduct;
+        return $arrayProducto;
     }
 
     function eliminar($id) // Metodo para eliminar un ítem

@@ -30,5 +30,6 @@ class MarcaController {
         $marca = $this->model->getMarcaByID($IDMarca);
         $this->view->mostrarProdByMarca($productos, $marca);
     }
-    
+
+
 }

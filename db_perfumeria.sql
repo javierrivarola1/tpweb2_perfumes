@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 18-10-2025 a las 14:30:40
+-- Tiempo de generación: 21-10-2025 a las 16:22:41
 -- Versión del servidor: 10.4.32-MariaDB
--- Versión de PHP: 8.2.12
+-- Versión de PHP: 8.0.30
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -91,7 +91,8 @@ CREATE TABLE `usuarios` (
 --
 
 INSERT INTO `usuarios` (`usuario`, `contrasenia`, `id`) VALUES
-('webadmin', 'admin', 1);
+('webadmin', '$2y$10$E3XfATYhKbmrEOo16FSqgOR/mtwFa6dSz0z1BvkGEVUQbvkD7DTmq', 1),
+('javo', '$2y$10$FXSGGRoPRl/BD8VxwSbwKO.fGYWVElLFWR8rfYcRw2sMPHKwYW4V6', 7);
 
 --
 -- Índices para tablas volcadas
@@ -118,6 +119,7 @@ ALTER TABLE `producto`
 ALTER TABLE `usuarios`
   ADD PRIMARY KEY (`id`);
 
+
 --
 -- AUTO_INCREMENT de las tablas volcadas
 --
@@ -132,13 +134,13 @@ ALTER TABLE `marca`
 -- AUTO_INCREMENT de la tabla `producto`
 --
 ALTER TABLE `producto`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- Restricciones para tablas volcadas

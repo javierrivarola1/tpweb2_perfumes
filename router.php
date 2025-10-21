@@ -145,7 +145,6 @@ switch ($params[0]) {
         break; // Ruta para cerrar sesión
        
     
-    /* LO QUE HIZO MICA */
     case 'marcas': //creo la url marcas
         sessionAuthMiddleware($res);
         $marcaController = new MarcaController(); //instancio el controlador

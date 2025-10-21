@@ -145,13 +145,12 @@ switch ($params[0]) {
         break; // Ruta para cerrar sesión
        
     
-    /* LO QUE HIZO MICA */
     case 'marcas': //creo la url marcas
         $marcaController = new MarcaController(); //instancio el controlador
         $marcaController->getMarcas(); //le pido al controlador que ejectute la funcion getMarcs()
         break;
 
-    case 'prodByMarca':
+    case 'marca':
         $marcaController = new MarcaController();
         $marcaController->getProdByMarca($params[1]); 
         break;

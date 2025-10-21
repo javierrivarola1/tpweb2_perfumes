@@ -1,8 +1,24 @@
 <?php require_once './template/layout/header.phtml'; ?>
-    <h1><?php echo $marca[0]->nombre?></h1>
-    <ul>
-        <?php foreach ($productos as $producto){ ?>
-        <li><?php echo $producto->nombre ?></li>
-        <?php }?>
-    </ul>
-    
+<h1 class="text-center fw-bold mb-4"><?php echo $marca->nombre; ?></h1>
+
+
+<div class="container">
+    <div class="row g-3">
+        <?php foreach ($productos as $producto) { ?>
+            <div class="col-12 col-md-6 col-lg-4 d-flex">
+                <div class="card h-100 w-100 d-flex flex-column">
+                    <img src="<?php echo $producto->url?>" class="card-img-top" alt="<?php echo $producto->nombre; ?>">
+                    <div class="card-body d-flex flex-column">
+                        <h5 class="card-title fs-6"><?php echo $producto->nombre; ?></h5>
+                        <p class="card-text fs-6"><?php echo $producto->descripcion; ?></p>
+                        <a href="<?php echo BASE_URL ?>/detalle/<?php echo $producto->id; ?>" class="btn btn-secondary mt-auto">Ver detalle</a>
+                    </div>
+                </div>
+            </div>
+        <?php } ?>
+    </div>
+
+    <div class="mt-4">
+        <a class="btn btn-info" href="<?php echo BASE_URL ?>/marcas/" role="button">Volver a nuestras marcas</a>
+    </div>
+</div>

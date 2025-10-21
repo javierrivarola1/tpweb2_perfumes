@@ -22,13 +22,5 @@ class MarcaModel extends Autodeploy{
     }
 
     
-    public function getProdByIDMarca ($IDMarca) {
-        $query = $this->db->prepare('SELECT * FROM producto WHERE marca = ?'); //en lugar del parametro escribo ? para evitar inyeccion sql y 
-                                                                                // evitar hackeos
-    
-        $query->execute([$IDMarca]);
-        $productos = $query->fetchAll(PDO::FETCH_OBJ); //trae todos los productos devuelto por la consulta y los guarda en un arreglo de objetos
-
-        return $productos; //retorno el arreglo productos al controlador
-    }
+   
 }

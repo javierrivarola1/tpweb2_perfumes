@@ -45,7 +45,6 @@ class MarcaController {
         $error = "Código de marca inválido.";
         $this->view->mostrarError($error);
     }
-}
 
-    
+
 }

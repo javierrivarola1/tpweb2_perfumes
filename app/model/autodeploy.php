@@ -1,4 +1,4 @@
-    <?php
+<?php
     require_once 'config.php';
 
     class Autodeploy
@@ -25,10 +25,11 @@
         private function _deploy()
   
         {
+          $pass= '$2y$10$nRA5g2fNChoGZ5deZ3zNiOUc4i6t5I03eygqYdchs/XzPBYBmv6ae';
           $query = $this->db->query('SHOW TABLES');
           $tables = $query->fetchAll();
           if (count($tables) == 0) {
-  
+
             $sql = <<<END
                     -- phpMyAdmin SQL Dump
                     -- version 5.2.1
@@ -61,7 +62,7 @@
 
                     CREATE TABLE `marca` (
                     `id` int(11) NOT NULL,
-                    `nombre` text NOT NULL,
+                    `nombre` varchar(50) NOT NULL,
                     `origen` varchar(25) DEFAULT NULL,
                     `creador` varchar(50) DEFAULT NULL,
                     `año` int(4) DEFAULT NULL
@@ -84,8 +85,9 @@
 
                     CREATE TABLE `producto` (
                     `id` int(11) NOT NULL,
-                    `nombre` text NOT NULL,
-                    `descripcion` text NOT NULL,
+                    `url` varchar(1000) NOT NULL,
+                    `nombre` varchar(500) NOT NULL,
+                    `descripcion` varchar(700) NOT NULL,
                     `marca` int(100) NOT NULL,
                     `sexo` char(3) NOT NULL,
                     `stock` tinyint(1) NOT NULL,
@@ -96,17 +98,13 @@
                     --
                     -- Volcado de datos para la tabla `producto`
                     --
-
-                    INSERT INTO `producto` (`id`, `nombre`, `descripcion`, `marca`, `sexo`, `stock`, `precio`, `presentacion`) VALUES
-                    (1, 'Blue Seduction Antonio', 'Blue Seduction de Antonio Banderas es una fragancia de la familia olfativa Oriental Fougère para Hombres. Las Notas de Salida son melón, bergamota, menta y grosellas negras; las Notas de Corazón son agua de mar, manzana verde, capuchino, cardamomo y nuez moscada; las Notas de Fondo son notas amaderadas y ámbar.', 1, 'M', 1, 15000, 120),
-                    (2, 'King of Seduction Absolute', 'King of Seduction Absolute de Antonio Banderas es una fragancia de la familia olfativa Amaderada Aromática para Hombres.\r\n Las Notas de Salida son toronja (pomelo), toronja (pomelo), ajenjo (absenta) y almendras verdes; las Notas de Corazón son notas marinas, lavanda y cardamomo; las Notas de Fondo son cuero, vetiver y musgo de roble.', 1, 'M', 1, 16000, 60),
-                    (3, 'King of Seduction Antonio Banderas', 'King of Seduction de Antonio Banderas es una fragancia de la familia olfativa Amaderada Aromática para Hombres. Las Notas de Salida son piña, bergamota, melón, manzana verde y toronja (pomelo); las Notas de Corazón son notas marinas, jazmín, cardamomo y neroli; las Notas de Fondo son vetiver, almizcle blanco, cedro, gamuza y ámbar.', 1, 'M', 1, 16000, 60),
-                    (4, 'Good Girl', 'Good Girl de Carolina Herrera es una fragancia de la familia olfativa Oriental Floral para Mujeres. Las Notas de Salida son almendra, café, bergamota y limón (lima ácida); las Notas de Corazón son nardos, jazmín sambac (sampaguita), flor de azahar del naranjo, rosa de Bulgaria (rosa Damascena de Bulgaria) y raíz de lirio; las Notas de Fondo son haba tonka, cacao, vainilla, praliné, sándalo, almizcle, ámbar, madera de cachemira, pachulí, canela y cedro.', 3, 'F', 1, 28000, 100),
-                    (5, '212 VIP Rosé', '212 VIP Rosé de Carolina Herrera es una fragancia de la familia olfativa Floral Frutal para Mujeres.  Las Notas de Salida son Champagne Rosé y pimienta rosa; las Notas de Corazón son flor del duraznero (flor del melocotonero) y rosa; las Notas de Fondo son almizcle blanco y notas amaderadas.', 3, 'F', 1, 20000, 50),
-                    (6, 'Carolina', 'Carolina de Carolina Herrera es una fragancia de la familia olfativa Almizcle Floral Amaderado para Mujeres. Las Notas de Salida son hojas del fresal salvaje, naranja amarga y cardamomo; las Notas de Corazón son frutas del bosque, rosa y pimienta; las Notas de Fondo son madera de cachemira, almizcle, ámbar y vainilla.', 3, 'F', 1, 25000, 100),
-                    (7, 'Invictus Victory Elixir Rabanne', 'Invictus Victory Elixir de Rabanne es una fragancia de la familia olfativa Oriental Amaderada para Hombres. Esta fragrancia es nueva. Invictus Victory Elixir se lanzó en 2023. Las Notas de Salida son lavanda, cardamomo y pimienta negra; las Notas de Corazón son incienso y pachulí; las Notas de Fondo son vaina de vainilla y haba tonka.', 2, 'M', 1, 55000, 50),
-                    (8, 'Olympéa Rabanne', 'Olympéa de Rabanne es una fragancia de la familia olfativa Oriental Floral para Mujeres. Las Notas de Salida son jazmín de agua, mandarina verde y flor de jengibre; las Notas de Corazón son vainilla y sal; las Notas de Fondo son madera de cachemira, ámbar gris y sándalo.', 2, 'F', 1, 21000, 50),
-                    (9, '1 Million Royal Rabanne', '1 Million Royal de Rabanne es una fragancia de la familia olfativa Oriental Amaderada para Hombres.  Las Notas de Salida son cardamomo, naranja tangerina y bergamota; las Notas de Corazón son lavanda, salvia y hojas de violeta; las Notas de Fondo son benjuí, cedro y pachulí.', 2, 'U', 1, 23000, 100);
+                    INSERT INTO `producto` (`id`, `url`, `nombre`, `descripcion`, `marca`, `sexo`, `stock`, `precio`, `presentacion`) VALUES
+                    (4, 'https://juleriaque.vtexassets.com/arquivos/ids/201518/good-girl-edp-8FB3ED41E09E468530B3404297CDA472.jpg?v=638085739653070000', 'Good Girl', 'Good Girl de Carolina Herrera es una fragancia de la familia olfativa Oriental Floral para Mujeres. Las Notas de Salida son almendra, café, bergamota y limón (lima ácida); las Notas de Corazón son nardos, jazmín sambac (sampaguita), flor de azahar del naranjo, rosa de Bulgaria (rosa Damascena de Bulgaria) y raíz de lirio; las Notas de Fondo son haba tonka, cacao, vainilla, praliné, sándalo, almizcle, ámbar, madera de cachemira, pachulí, canela y cedro.', 3, 'F', 1, 28000, 100),
+                    (6, 'https://m.media-amazon.com/images/I/61q5qvBaZ9L.jpg', 'Carolina', 'Carolina de Carolina Herrera es una fragancia de la familia olfativa Almizcle Floral Amaderado para Mujeres. Las Notas de Salida son hojas del fresal salvaje, naranja amarga y cardamomo; las Notas de Corazón son frutas del bosque, rosa y pimienta; las Notas de Fondo son madera de cachemira, almizcle, ámbar y vainilla.', 3, 'F', 1, 25000, 100),
+                    (7, 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSuRWLKyEI1TerN0OBO7zVn4vRZ7wCWJC1JxQ&s', 'Invictus Victory Elixir Rabanne', 'Invictus Victory Elixir de Rabanne es una fragancia de la familia olfativa Oriental Amaderada para Hombres. Esta fragrancia es nueva. Invictus Victory Elixir se lanzó en 2023. Las Notas de Salida son lavanda, cardamomo y pimienta negra; las Notas de Corazón son incienso y pachulí; las Notas de Fondo son vaina de vainilla y haba tonka.', 2, 'M', 1, 55000, 50),
+                    (8, 'https://www.siemprefarmacias.com.ar/contenido/productos/original/1631298985-7750.jpeg', 'Olympéa Rabanne', 'Olympéa de Rabanne es una fragancia de la familia olfativa Oriental Floral para Mujeres. Las Notas de Salida son jazmín de agua, mandarina verde y flor de jengibre; las Notas de Corazón son vainilla y sal; las Notas de Fondo son madera de cachemira, ámbar gris y sándalo.', 2, 'F', 1, 21000, 50),
+                    (9, 'https://farmaciasdelpueblo.vtexassets.com/arquivos/ids/209568/3349668617050-2.png?v=638848256100330000', '1 Million Royal Rabanne', '1 Million Royal de Rabanne es una fragancia de la familia olfativa Oriental Amaderada para Hombres.  Las Notas de Salida son cardamomo, naranja tangerina y bergamota; las Notas de Corazón son lavanda, salvia y hojas de violeta; las Notas de Fondo son benjuí, cedro y pachulí.', 2, 'U', 1, 23000, 100),
+                    (13, 'https://www.siemprefarmacias.com.ar/contenido/productos/original/1659099276-320.jpeg', 'King of Seduction Absolute', 'Fragancia de la familia olfativa Amaderada Aromática para Hombres. Las Notas de Salida son piña, melón, bergamota, manzana verde y toronja ', 1, 'M', 1, 13000, 50);
 
                     --
                     -- Índices para tablas volcadas
@@ -142,7 +140,8 @@
                     --
                     ALTER TABLE `producto`
                     MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
-
+                    --
+                   
                     --
                     -- Restricciones para tablas volcadas
                     --
@@ -152,11 +151,30 @@
                     --
                     ALTER TABLE `producto`
                     ADD CONSTRAINT `producto_ibfk_1` FOREIGN KEY (`marca`) REFERENCES `marca` (`id`) ON UPDATE CASCADE;
-                    COMMIT;
 
-                    /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-                    /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-                    /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+                                       -- Add usuarios table and initial data
+                    CREATE TABLE `usuarios` (
+                    `id` int(11) NOT NULL AUTO_INCREMENT,
+                    `usuario` varchar(80) NOT NULL,
+                    `contrasenia` varchar(80) NOT NULL,
+                    PRIMARY KEY (`id`),
+                    UNIQUE KEY `usuario` (`usuario`)
+                  ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+                  --
+                  -- Volcado de datos para la tabla `usuarios`
+                  --
+                  INSERT INTO `usuarios` (`usuario`, `contrasenia`) VALUES
+                  ('webadmin', '$pass');
+
+                  -- (Si quieres forzar el siguiente AUTO_INCREMENT puedes mantener el ALTER, pero no es necesario)
+                  -- ALTER TABLE `usuarios` MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  
+                  COMMIT;
+
+                  /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+                  /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+                  /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 
                             
                   END;

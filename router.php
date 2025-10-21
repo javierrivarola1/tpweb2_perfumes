@@ -146,17 +146,19 @@ switch ($params[0]) {
        
     
     case 'marcas': //creo la url marcas
+        sessionAuthMiddleware($res);
         $marcaController = new MarcaController(); //instancio el controlador
         $marcaController->getMarcas(); //le pido al controlador que ejectute la funcion getMarcs()
         break;
 
     case 'marca':
+        sessionAuthMiddleware($res);
         $marcaController = new MarcaController();
         $marcaController->getProdByMarca($params[1]); 
         break;
     
     default:
-        $controller = new ErrorVista();
-        $controller->showError("Pagina no encontrada", "home", "/", 404);
+        $controller = new ProductoController();
+        $controller->mostrarError("Pagina no encontrada. Error 404");
         break;
 }

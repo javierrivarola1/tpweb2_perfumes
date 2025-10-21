@@ -83,7 +83,7 @@ class ProductoController {
             $errores[] = "La descripción es obligatoria. Y no debe superar los 1000 caracteres.";
         }
 
-        if ( $_POST['precio'] >=0 || empty($_POST['precio']) || is_null($_POST['precio']) || !isset($_POST['precio'])) {
+        if ( $_POST['precio'] <=0 || empty($_POST['precio']) || is_null($_POST['precio']) || !isset($_POST['precio'])) {
             $errores[] = "El precio es obligatorio y debe ser mayor a 0.";
         }
         

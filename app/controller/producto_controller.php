@@ -74,7 +74,7 @@ class ProductoController {
 
         $errores = [];
 
-        //VALIDACIONES UNA POR CADA CAMPO- PODRIAN SER MUCHAS MAS COMPLEJAS
+        //VALIDACIONES UNA POR CADA CAMPO- 
         if (!preg_match("/^[A-Za-z\s]+$/", $_POST['nombre']) || empty($_POST['nombre']) || is_null($_POST['nombre']) || !isset($_POST['nombre'])) {
             $errores[] = "El nombre es obligatorio.";
         }
@@ -204,4 +204,5 @@ class ProductoController {
         $this->view->mostrarError($mensaje);
     }
     
+
 }

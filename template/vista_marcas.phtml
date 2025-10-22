@@ -1,4 +1,5 @@
 <?php require_once './template/layout/header.phtml'; ?>
+<h1 class="text-center fw-bold mb-4">Nuestras Marcas</h1>
 <div class="accordion" id="accordionExample">
   <?php foreach ($marcas as $marca) { ?>
     <div class="accordion-item">
@@ -17,13 +18,32 @@
             <li>Origen: <?php echo $marca->origen; ?> </li>
             <li>Creador: <?php echo $marca->creador; ?> </li>
             <li>Año: <?php echo $marca->año; ?> </li>
-        </ul>
-        <a class="btn btn-info" href="<?php echo BASE_URL; ?>/marca/<?php echo $marca->id ?>" role="button">Ver perfumes</a>
+          </ul>
+
+          <div class="d-flex gap-2">
+            <a class="btn btn-info" href="<?php echo BASE_URL; ?>/marca/<?php echo $marca->id ?>" role="button">Ver perfumes</a>
+           <?php 
+if (isset($_SESSION['username'])) {?> <a class="btn btn-warning" href="editar_marca/<?php echo $marca->id ?>" role="button">Editar</a><?php }
+?>
+<?php if (isset($_SESSION['username'])) {?>            <a class="btn btn-danger" href="eliminar_marca/<?php echo $marca->id ?>" role="button">Eliminar</a><?php }
+?>
+          </div>
+
         </div>
       </div>
     </div>
   <?php } ?>
 </div>
+
+
+<?php 
+if (isset($_SESSION['username'])) {
+    require_once "template/agregar_marca.phtml";
+}
+?>
+
+
+
 
 <!-- Agregado: fallback para cargar Bootstrap 5 bundle si no está disponible -->
 <script>

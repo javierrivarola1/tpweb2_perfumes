@@ -33,6 +33,13 @@ $params = explode('/', $action);
   /agregarProducto         ProductoController                  agregarProducto()           Agrega un nuevo producto (POST, requiere auth)
   /modificarProducto/:id   ProductoController                  modificarProducto()         Modifica un producto existente (POST, requiere auth)
 
+  # Marcas
+  /marcas                  MarcaController                  getMarcas()             Obtiene y muestra todos las marcas
+  /marca/:id               MarcaController                  getProdByMarca()        Muestra los productos de una marca
+  /agregar_marca           MarcaController                  agregarMarca()          Agrega un nuevo producto (POST, requiere auth)
+  /editar_marca/:id        MarcaController                  editarMarca()           Modifica una marca existente (POST, requiere auth)
+  /eliminar_marca/:id      MarcaController                  eliminarMarca()         Elimina una marca específica (requiere auth)
+  
   # Usuarios
   /login                    UsuarioController                 mostrarLogin()              Muestra el formulario de login
   /loguearse               UsuarioController                 login()                     Procesa el login del usuario (POST)
@@ -145,18 +152,51 @@ switch ($params[0]) {
         break; // Ruta para cerrar sesión
        
     
-    case 'marcas': //creo la url marcas
+    case 'marcas': //Ruta para ver las marcas
         sessionAuthMiddleware($res);
         $marcaController = new MarcaController(); //instancio el controlador
         $marcaController->getMarcas(); //le pido al controlador que ejectute la funcion getMarcs()
         break;
 
-    case 'marca':
+    case 'marca': //Ruta para elegir la marca y listar sus productos
         sessionAuthMiddleware($res);
         $marcaController = new MarcaController();
         $marcaController->getProdByMarca($params[1]); 
         break;
+    case 'agregar_marca': //Ruta para agregar una marca
+         sessionAuthMiddleware($res);
+        verifyAuthMiddleware($res);
+         $marcaController = new MarcaController();
+        if($_SERVER['REQUEST_METHOD'] == 'POST') {
+           
+            $marcaController->agregarMarca();
+        } else {
+          
+            $marcaController->mostrarError("Método no permitido. Debe usar POST para agregar una marca.");
+        }
+        break; 
+  case 'editar_marca': // Ruta para editar una marca
+        sessionAuthMiddleware($res);
+        verifyAuthMiddleware($res);
+        $marcaController = new MarcaController();
+
+        if (isset($params[1]) && $params[1] != "") {
     
+            $marcaController->editarMarca($params[1]);
+            } else {
+            $marcaController->mostrarError("No se ha especificado una marca válida para editar.");
+            }
+        break;
+    case 'eliminar_marca': //Ruta para eliminar una marca
+        sessionAuthMiddleware($res);
+        verifyAuthMiddleware($res);
+         $marcaController = new MarcaController();
+         if (isset($params[1])&& $params[1]!= "") { // revisa como parametro el ID de la marca para traerlo.
+            $marcaController->eliminarMarca($params[1]);
+        } else {
+            $marcaController->mostrarError("No se ha especificado una marca válida para eliminar.");
+        }
+        break; 
     default:
         $controller = new ProductoController();
         $controller->mostrarError("Pagina no encontrada. Error 404");

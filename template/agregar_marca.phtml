@@ -1,0 +1,28 @@
+<div class="container mt-5">
+    <h2 class="text-center mb-4">Agregar Nueva Marca</h2>
+
+    <form action="agregar_marca" method="POST">
+        <div class="mb-3">
+            <label for="nombre" class="form-label">Nombre</label>
+            <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Nombre de la marca" required>
+        </div>
+
+        <div class="mb-3">
+            <label for="origen" class="form-label">Origen</label>
+            <input type="text" class="form-control" id="origen" name="origen" placeholder="País o ciudad de origen" required>
+        </div>
+
+        <div class="mb-3">
+            <label for="creador" class="form-label">Creador</label>
+            <input type="text" class="form-control" id="creador" name="creador" placeholder="Nombre del creador" required>
+        </div>
+
+        <div class="mb-3">
+            <label for="anio" class="form-label">Año</label>
+            <input type="number" class="form-control" id="anio" name="anio" placeholder="Año de fundación" min="1800" max="<?php echo date('Y'); ?>" required>
+        </div>
+
+        <button type="submit" class="btn btn-primary mb-3">Agregar Marca</button>
+       
+    </form>
+</div>

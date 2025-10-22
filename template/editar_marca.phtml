@@ -1,0 +1,40 @@
+<?php require_once './template/layout/header.phtml'; ?>
+
+<div class="container mt-5">
+    <h2 class="text-center mb-4">Editar Marca</h2>
+
+    <form action="<?php echo BASE_URL ?>/editar_marca/<?php echo $marca->id;?>" method="POST">
+       
+        <input type="hidden" name="id" value="<?php echo $marca->id; ?>">
+
+        <div class="mb-3">
+            <label for="nombre" class="form-label">Nombre</label>
+            <input type="text" class="form-control" id="nombre" name="nombre"
+                   value="<?php echo htmlspecialchars($marca->nombre); ?>" required>
+        </div>
+
+        <div class="mb-3">
+            <label for="origen" class="form-label">Origen</label>
+            <input type="text" class="form-control" id="origen" name="origen"
+                   value="<?php echo htmlspecialchars($marca->origen); ?>" required>
+        </div>
+
+        <div class="mb-3">
+            <label for="creador" class="form-label">Creador</label>
+            <input type="text" class="form-control" id="creador" name="creador"
+                   value="<?php echo htmlspecialchars($marca->creador); ?>" required>
+        </div>
+
+        <div class="mb-3">
+            <label for="anio" class="form-label">Año</label>
+            <input type="number" class="form-control" id="anio" name="anio"
+                   value="<?php echo htmlspecialchars($marca->año); ?>"
+                   min="1800" max="<?php echo date('Y'); ?>" required>
+        </div>
+
+        <div class="d-flex gap-2">
+            <button type="submit" class="btn btn-success">Actualizar Marca</button>
+            <a href="<?php echo BASE_URL ?>/marcas" class="btn btn-secondary">Cancelar</a>
+        </div>
+    </form>
+</div>

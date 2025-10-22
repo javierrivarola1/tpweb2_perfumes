@@ -91,7 +91,7 @@ class ProductoController {
             $errores[] = "El stock es obligatorio y no puede ser negativo. Y debe ser entre 1 y 0";
         }
         if ($_POST['presentacion']<=20 || $_POST['presentacion'] == "" || is_null($_POST['presentacion']) || !isset($_POST['presentacion'])) {
-        if ($_POST['presentacion']<=10 || $_POST['presentacion'] == "" || is_null($_POST['presentacion']) || !isset($_POST['presentacion'])) {
+        
             $errores[] = "La presentación es obligatoria.";
         }   
         

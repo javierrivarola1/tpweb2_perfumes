@@ -59,7 +59,7 @@ section > h3 {
   width: 100%;
 }
 
-/*footer*/
+/*Footer*/
 footer {
   background-color: #f0a0b2;
   color: white;
@@ -85,7 +85,7 @@ footer {
   font-weight: 700;
 }
 
-/* labels y campos */
+/* Labels y campos */
 .formulario label {
   display: block;
   margin-bottom: 6px;
@@ -143,7 +143,7 @@ footer {
   font-weight: 600;
 }
 
-/*registrarse*/
+/*Registrarse*/
 .boton-registrarse {
   background-color: #f0a0b2 !important;
   border: none;
@@ -152,3 +152,4 @@ footer {
   border-radius: 8px;
   font-weight: 600;
 }
+

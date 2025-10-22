@@ -74,7 +74,7 @@ class ProductoController {
 
         $errores = [];
 
-        //VALIDACIONES UNA POR CADA CAMPO- PODRIAN SER MUCHAS MAS COMPLEJAS
+        //VALIDACIONES UNA POR CADA CAMPO- 
         if (!preg_match("/^[A-Za-z\s]+$/", $_POST['nombre']) || empty($_POST['nombre']) || is_null($_POST['nombre']) || !isset($_POST['nombre'])) {
             $errores[] = "El nombre es obligatorio.";
         }
@@ -91,6 +91,7 @@ class ProductoController {
             $errores[] = "El stock es obligatorio y no puede ser negativo. Y debe ser entre 1 y 0";
         }
         if ($_POST['presentacion']<=20 || $_POST['presentacion'] == "" || is_null($_POST['presentacion']) || !isset($_POST['presentacion'])) {
+        if ($_POST['presentacion']<=10 || $_POST['presentacion'] == "" || is_null($_POST['presentacion']) || !isset($_POST['presentacion'])) {
             $errores[] = "La presentación es obligatoria.";
         }   
         
@@ -204,4 +205,6 @@ class ProductoController {
         $this->view->mostrarError($mensaje);
     }
     
+
 }
+

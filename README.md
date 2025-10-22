@@ -39,6 +39,9 @@ La relación entre estas tablas es de 1 a N , lo que significa que una marca pue
 <li>El sitio utiliza URL semánticas.</li>
 </ul>
 
+## ✅ Manual de uso. Carga de productos y marcas
+Una vez logueado, el administrador podra agregar tanto marcas como productos nuevos, siendo en el caso de los productos el rango minimo para la presentacion de 20 ml, por lo cual el entero a colocar debera ser un numero mayor o igual a 20.
+
 
 
 <img width="952" height="607" alt="Captura de pantalla 2025-09-23 194921" src="https://github.com/user-attachments/assets/a92a6dfe-b1f6-4c09-af7d-914411362a8e" />
